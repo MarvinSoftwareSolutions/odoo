@@ -42,3 +42,7 @@
 	path = submodules/odoo-road-union
 	url = git@github.com:MarvinSoftwareSolutions/odoo-road-union.git
 	branch = 16.0
+[submodule "submodules/odoo-argentina-ce"]
+	path = submodules/odoo-argentina-ce
+	url = git@github.com:ingadhoc/odoo-argentina-ce.git
+	branch = 16.0
