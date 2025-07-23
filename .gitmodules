@@ -28,7 +28,7 @@
 	branch = 16.0
 [submodule "submodules/odoo-argentina"]
 	path = submodules/odoo-argentina
-	url = git@github.com:a2systems/odoo-argentina.git
+	url = git@github.com:ingadhoc/odoo-argentina.git
 	branch = 16.0
 [submodule "submodules/account-financial-tools"]
 	path = submodules/account-financial-tools
