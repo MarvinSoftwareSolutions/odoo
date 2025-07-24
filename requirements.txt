@@ -1,0 +1,17 @@
+M2Crypto
+Pillow>=2.0.0
+chardet
+cryptography==36.0.2
+endesive
+git+https://github.com/OCA/openupgradelib.git@master
+git+https://github.com/reingart/pyafipws@main
+pysimplesoap==1.8.22
+httplib2>=0.20.4
+mock
+ofxparse
+ofxtools
+openpyxl
+py3o.formats
+py3o.template
+pyOpenSSL
+xlrd
