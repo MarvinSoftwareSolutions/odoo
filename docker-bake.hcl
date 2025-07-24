@@ -1,10 +1,10 @@
 # Variables ----------------------------------------------------------------------------------------
 variable "REGISTRY" {
-  default = "ghcr.io/marvinsoftwaresolutions/odoo"
+  default = "ghcr.io/marvinsoftwaresolutions"
 }
 
 variable "ODOO_VERSION" {
-  default = "16.0"
+  default = "16"
 }
 variable "TAG" {
   default = "latest"

@@ -1,4 +1,4 @@
-ARG ODOO_VERSION="16.0"
+ARG ODOO_VERSION="16"
 
 FROM odoo:${ODOO_VERSION} AS production
 
