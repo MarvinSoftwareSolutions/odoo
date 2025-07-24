@@ -18,7 +18,6 @@ declare -a submodule_git_urls_list=(
   "git@github.com:OCA/helpdesk.git"
   "git@github.com:OCA/reporting-engine.git"
   "git@github.com:OCA/vertical-association.git"
-  # "git@github.com:a2systems/odoo-argentina.git"
   "git@github.com:ingadhoc/odoo-argentina.git"
   "git@github.com:ingadhoc/odoo-argentina-ce.git"
   "git@github.com:ingadhoc/account-financial-tools.git"
