@@ -19,7 +19,7 @@ jobs:
       - name: Copy submodules into installed adons
         run: scripts/add_submodules_as_addons.sh
       - name: Login to Docker Registry
-        run: echo -n "${{ secrets.DOCKER_REGISTRY_TOKEN }}" | docker login ${{ env.DOCKER_REGISTRY }} -u ${{ github.actor }} --password-stdin
+        run: echo -n "${{ env.DOCKER_REGISTRY_TOKEN }}" | docker login ${{ env.DOCKER_REGISTRY }} -u ${{ github.actor }} --password-stdin
       - name: Build and publish the Docker image
         run: |
           REGISTRY="${{ env.DOCKER_REGISTRY }}/marvinsoftwaresolutions" \
