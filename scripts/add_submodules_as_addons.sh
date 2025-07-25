@@ -64,6 +64,7 @@ declare -a submodule_names_list=(
   "odoo-argentina-ce"
   "odoo-road-union"
   "odoo-union"
+  "odoo-vialidad-cordoba"
   "odooapps"
   "reporting-engine"
   "vertical-association"
