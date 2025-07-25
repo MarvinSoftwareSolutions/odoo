@@ -2,6 +2,11 @@ ARG ODOO_VERSION="16"
 
 FROM odoo:${ODOO_VERSION} AS production
 
+LABEL org.opencontainers.image.source="https://github.com/MarvinSoftwareSolutions/odoo"
+LABEL org.opencontainers.image.author="marvin.software.solutions@gmail.com"
+LABEL org.opencontainers.image.description="Odoo image containing all modules for argentinian accounting"
+LABEL org.opencontainers.image.licenses="MIT"
+
 COPY --chown=odoo:odoo LICENSE LICENSE
 
 COPY --chown=odoo:odoo ./extra-addons /mnt/extra-addons/default-addons
