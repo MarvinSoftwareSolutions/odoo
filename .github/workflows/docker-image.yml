@@ -16,5 +16,7 @@ jobs:
           submodules: True
       - name: Copy submodules into installed adons
         run: scripts/add_submodules_as_addons.sh
+      - name: Login to Docker Registry
+        run: echo -n "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Build the Docker image
         run: TAG=${{ env.IMAGE_TAG }} docker buildx bake publish
