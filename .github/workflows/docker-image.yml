@@ -5,6 +5,8 @@ on:
   pull_request:
 
 env:
+  DOCKER_REGISTRY: "ghcr.io"
+  DOCKER_REGISTRY_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
   IMAGE_TAG: ${GITHUB_REF_NAME}
 
 jobs:
@@ -17,6 +19,9 @@ jobs:
       - name: Copy submodules into installed adons
         run: scripts/add_submodules_as_addons.sh
       - name: Login to Docker Registry
-        run: echo -n "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-      - name: Build the Docker image
-        run: TAG=${{ env.IMAGE_TAG }} docker buildx bake publish
+        run: echo -n "${{ secrets.DOCKER_REGISTRY_TOKEN }}" | docker login ${{ env.DOCKER_REGISTRY }} -u ${{ github.actor }} --password-stdin
+      - name: Build and publish the Docker image
+        run: |
+          REGISTRY="${{ env.DOCKER_REGISTRY }}/marvinsoftwaresolutions" \
+          TAG="${{ env.IMAGE_TAG }}" \
+          docker buildx bake publish
