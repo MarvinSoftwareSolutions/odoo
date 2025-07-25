@@ -8,7 +8,7 @@ function create_destination_path {
   local DEST_PATH=${1}
   if [ ! -d "$DEST_PATH" ]; then
     echo "[INFO] Creating directory '$DEST_PATH'"
-    if [ ! "$(mkdir -p "${DEST_PATH}")" ]; then
+    if ! mkdir "${DEST_PATH}/deleteme"; then
       echo "[ERROR] Unable to create the '$DEST_PATH' destination path."
       return 1
     fi
@@ -69,23 +69,30 @@ declare -a submodule_names_list=(
   "vertical-association"
 )
 
-create_destination_path "${INSTALLED_MODULES_PATH}"
+
+if ! create_destination_path "${INSTALLED_MODULES_PATH}"; then
+  echo "[ERROR] Failed to add extra-addons. Check logs for more info."
+  exit 1
+fi
 
 if [ ! -f "${EXCLUDED_FILES_FILE}" ]; then
-    echo "[ERROR] The exclusion file '${EXCLUDED_FILES_FILE}' does not exist."
-    exit 1
+  echo "[ERROR] The exclusion file '${EXCLUDED_FILES_FILE}' does not exist."
+  echo "[ERROR] Failed to add extra-addons. Check logs for more info."
+  exit 1
 fi
 
 for submodule in "${submodule_names_list[@]}"; do
 
   submodule_path="${DOWNLOADED_MODULES_PATH}/${submodule}"
   if [ ! -d "${submodule_path}" ]; then
-      echo "[ERROR] Directory '${submodule_path}' does not exist. Clone the repository including its submodules."
-      exit 1
+    echo "[ERROR] Directory '${submodule_path}' does not exist. Clone the repository including its submodules."
+    echo "[ERROR] Failed to add extra-addons. Check logs for more info."
+    exit 1
   fi
 
   if ! copy_submodule_into_addons_path "${submodule_path}" "${INSTALLED_MODULES_PATH}" "${EXCLUDED_FILES_FILE}"; then
     echo "[ERROR] Unable to copy '${submodule_path}' into '${INSTALLED_MODULES_PATH}'."
+    echo "[ERROR] Failed to add extra-addons. Check logs for more info."
     exit 1
   fi
 
