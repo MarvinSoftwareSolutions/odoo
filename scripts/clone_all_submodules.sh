@@ -38,5 +38,6 @@ git submodule init
 git submodule update --recursive
 git submodule foreach "git checkout ${odoo_version}"
 git submodule foreach "git pull"
+git submodule foreach git branch --show-current
 
 exit 0
