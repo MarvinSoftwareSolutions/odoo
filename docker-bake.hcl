@@ -38,10 +38,6 @@ target "odoo" {
   context = "./"
   dockerfile = "./Dockerfile"
   target = "production"
-  labels = {
-    "org.opencontainers.image.source" = "https://github.com/MarvinSoftwareSolutions/odoo/tree/${ODOO_VERSION}"
-    "org.opencontainers.image.author" = "marvin.software.solutions@gmail.com"
-  }
   tags = [
     "${REGISTRY}/odoo:${TAG}",
   ]

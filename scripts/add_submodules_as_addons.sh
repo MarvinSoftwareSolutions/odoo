@@ -19,10 +19,14 @@ function copy_submodule_into_addons_path {
   local origin_path="${1}"
   local destination_path="${2}"
   local excluded_files_file="${3}"
-  rsync -ah \
-        --exclude-from="${excluded_files_file}" \
-        --include '*' \
-        "${origin_path}/" "${destination_path}"
+
+  # rsync -ah \
+  #       --exclude-from="${excluded_files_file}" \
+  #       --include '*' \
+  #       "${origin_path}/" "${destination_path}"
+
+  cp -R "${origin_path}/"*"/" "${destination_path}"
+
 }
 
 function prepare_extra_addons_requirements_file {
@@ -64,6 +68,7 @@ declare -a submodule_names_list=(
   "odoo-argentina-ce"
   "odoo-road-union"
   "odoo-union"
+  "odoo-vialidad-cordoba"
   "odooapps"
   "reporting-engine"
   "vertical-association"

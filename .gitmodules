@@ -46,3 +46,7 @@
 	path = submodules/odooapps
 	url = git@github.com:odoomates/odooapps.git
 	branch = 16.0
+[submodule "submodules/odoo-vialidad-cordoba"]
+	path = submodules/odoo-vialidad-cordoba
+	url = git@github.com:MarvinSoftwareSolutions/odoo-vialidad-cordoba.git
+	branch = 16.0

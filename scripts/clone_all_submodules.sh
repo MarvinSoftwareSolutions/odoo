@@ -13,6 +13,7 @@ SUBMODULES_PATH="${PROJECT_ROOT}/submodules"
 declare -a submodule_git_urls_list=(
   "git@github.com:MarvinSoftwareSolutions/odoo-road-union.git"
   "git@github.com:MarvinSoftwareSolutions/odoo-union.git"
+  "git@github.com:MarvinSoftwareSolutions/odoo-vialidad-cordoba.git"
   "git@github.com:OCA/account-reconcile.git"
   "git@github.com:OCA/bank-statement-import.git"
   "git@github.com:OCA/helpdesk.git"
@@ -33,7 +34,10 @@ for submodule_url in "${submodule_git_urls_list[@]}"; do
 done
 cd "${PROJECT_ROOT}" || exit 0
 
+git submodule init
+git submodule update --recursive
 git submodule foreach "git checkout ${odoo_version}"
-git submodule foreach "git pull origin ${odoo_version}"
+git submodule foreach "git pull"
+git submodule foreach git branch --show-current
 
 exit 0
