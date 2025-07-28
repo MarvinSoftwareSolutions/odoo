@@ -42,7 +42,7 @@ jobs:
         run: scripts/add_submodules_as_addons.sh
       - id: resgistry-login
         name: Login to Docker Registry
-        run: echo -n "${{ env.DOCKER_REGISTRY_TOKEN }}" | docker login ${{ env.DOCKER_REGISTRY }} -u ${{ env.DOCKER_REGISTRY_USER }} --password-stdin
+        run: echo -n "${{ env.DOCKER_REGISTRY_TOKEN }}" | docker login -u ${{ env.DOCKER_REGISTRY_USER }} --password-stdin
       - id: build_and_push
         name: Build and publish the Docker image
         run: TAG="${{ env.IMAGE_TAG }}" docker buildx bake publish
