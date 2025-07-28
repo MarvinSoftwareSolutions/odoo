@@ -19,13 +19,13 @@ jobs:
         with:
           submodules: True
       - id: tag_id
-        name: Get shirt SHA for image tag
+        name: Get short SHA for image tag
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - id: install_submodules
         name: Copy submodules into installed adons
         run: scripts/add_submodules_as_addons.sh
       - id: test
-        name: Build and publish the Docker image
+        name: Test Docker image build
         run: |
           REGISTRY="${{ env.DOCKER_REGISTRY }}/marvinsoftwaresolutions" \
           TAG="${{ env.IMAGE_TAG }}" \
