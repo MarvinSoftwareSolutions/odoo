@@ -1,0 +1,50 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+      - main
+      - '[0-9]+'
+      - '[0-9]+.[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+env:
+  DOCKER_REGISTRY: "index.docker.io"
+  DOCKER_REGISTRY_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+  IMAGE_TAG: ${GITHUB_REF_NAME}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: True
+      - id: test
+        name: Build and publish the Docker image
+        run: |
+          REGISTRY="${{ env.DOCKER_REGISTRY }}/marvinsoftwaresolutions" \
+          TAG="${{ env.IMAGE_TAG }}" \
+          docker buildx bake test
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - test
+    steps:
+      - id: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: True
+      - id: install_submodules
+        name: Copy submodules into installed adons
+        run: scripts/add_submodules_as_addons.sh
+      - id: resgistry-login
+        name: Login to Docker Registry
+        run: echo -n "${{ env.DOCKER_REGISTRY_TOKEN }}" | docker login ${{ env.DOCKER_REGISTRY }} -u ${{ github.actor }} --password-stdin
+      - id: build_and_push
+        name: Build and publish the Docker image
+        run: |
+          REGISTRY="${{ env.DOCKER_REGISTRY }}/marvinsoftwaresolutions" \
+          TAG="${{ env.IMAGE_TAG }}" \
+          docker buildx bake publish
