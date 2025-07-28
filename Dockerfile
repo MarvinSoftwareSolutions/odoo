@@ -15,6 +15,7 @@ COPY --chown=root:root ./config/etc/ssl/openssl.cnf /etc/ssl/openssl.cnf
 
 USER root
 RUN apt-get update && \
+    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
       git \
       python3-chardet \

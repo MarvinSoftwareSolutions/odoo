@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  pull_request:
+
+env:
+  DOCKER_REGISTRY: "index.docker.io"
+  DOCKER_REGISTRY_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+  IMAGE_TAG: ${GITHUB_SHA}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: True
+      - id: install_submodules
+        name: Copy submodules into installed adons
+        run: scripts/add_submodules_as_addons.sh
+      - id: test
+        name: Test Docker image build
+        run: |
+          REGISTRY="${{ env.DOCKER_REGISTRY }}/marvinsoftwaresolutions" \
+          TAG="${{ env.IMAGE_TAG }}" \
+          docker buildx bake test
