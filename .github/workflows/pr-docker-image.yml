@@ -11,16 +11,11 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
-    outputs:
-      SHA_SHORT: ${{ steps.tag_id.outputs.sha_short }}
     steps:
       - id: checkout
         uses: actions/checkout@v4
         with:
           submodules: True
-      - id: tag_id
-        name: Get short SHA for image tag
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - id: install_submodules
         name: Copy submodules into installed adons
         run: scripts/add_submodules_as_addons.sh
