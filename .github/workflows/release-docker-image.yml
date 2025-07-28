@@ -10,7 +10,8 @@ on:
 
 env:
   DOCKER_REGISTRY: "index.docker.io"
-  DOCKER_REGISTRY_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+  DOCKER_REGISTRY_TOKEN: "${{ secrets.DOCKER_HUB_TOKEN }}"
+  DOCKER_REGISTRY_USER: "${{ secrets.DOCKER_HUB_USER }}"
   IMAGE_TAG: ${GITHUB_REF_NAME}
 
 jobs:
@@ -41,7 +42,7 @@ jobs:
         run: scripts/add_submodules_as_addons.sh
       - id: resgistry-login
         name: Login to Docker Registry
-        run: echo -n "${{ env.DOCKER_REGISTRY_TOKEN }}" | docker login ${{ env.DOCKER_REGISTRY }} -u ${{ github.actor }} --password-stdin
+        run: echo -n "${{ env.DOCKER_REGISTRY_TOKEN }}" | docker login --password-stdin ${{ env.DOCKER_REGISTRY }} -u ${{ env.DOCKER_REGISTRY_USER }}
       - id: build_and_push
         name: Build and publish the Docker image
         run: |
