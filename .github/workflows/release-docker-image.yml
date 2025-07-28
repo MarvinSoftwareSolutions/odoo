@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build and publish Docker image
 
 on:
   push:
@@ -42,7 +42,7 @@ jobs:
         run: scripts/add_submodules_as_addons.sh
       - id: resgistry-login
         name: Login to Docker Registry
-        run: echo -n "${{ env.DOCKER_REGISTRY_TOKEN }}" | docker login --password-stdin ${{ env.DOCKER_REGISTRY }} -u ${{ env.DOCKER_REGISTRY_USER }}
+        run: echo -n "${{ env.DOCKER_REGISTRY_TOKEN }}" | docker login ${{ env.DOCKER_REGISTRY }} -u ${{ env.DOCKER_REGISTRY_USER }} --password-stdin
       - id: build_and_push
         name: Build and publish the Docker image
         run: |
