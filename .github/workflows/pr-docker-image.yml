@@ -1,0 +1,22 @@
+name: Test Docker image build
+
+on:
+  pull_request:
+
+env:
+  IMAGE_TAG: ${GITHUB_SHA}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: True
+      - id: install_submodules
+        name: Copy submodules into installed adons
+        run: scripts/add_submodules_as_addons.sh
+      - id: test
+        name: Test Docker image build
+        run: TAG="${{ env.IMAGE_TAG }}" docker buildx bake test
