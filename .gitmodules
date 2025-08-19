@@ -1,52 +1,52 @@
 [submodule "submodules/odoo-road-union"]
 	path = submodules/odoo-road-union
-	url = git@github.com:MarvinSoftwareSolutions/odoo-road-union.git
+	url = https://github.com/MarvinSoftwareSolutions/odoo-road-union
 	branch = 16.0
 [submodule "submodules/odoo-union"]
 	path = submodules/odoo-union
-	url = git@github.com:MarvinSoftwareSolutions/odoo-union.git
+	url = https://github.com/MarvinSoftwareSolutions/odoo-union
 	branch = 16.0
 [submodule "submodules/account-reconcile"]
 	path = submodules/account-reconcile
-	url = git@github.com:OCA/account-reconcile.git
+	url = https://github.com/OCA/account-reconcile
 	branch = 16.0
 [submodule "submodules/bank-statement-import"]
 	path = submodules/bank-statement-import
-	url = git@github.com:OCA/bank-statement-import.git
+	url = https://github.com/OCA/bank-statement-import
 	branch = 16.0
 [submodule "submodules/helpdesk"]
 	path = submodules/helpdesk
-	url = git@github.com:OCA/helpdesk.git
+	url = https://github.com/OCA/helpdesk
 	branch = 16.0
 [submodule "submodules/reporting-engine"]
 	path = submodules/reporting-engine
-	url = git@github.com:OCA/reporting-engine.git
+	url = https://github.com/OCA/reporting-engine
 	branch = 16.0
 [submodule "submodules/vertical-association"]
 	path = submodules/vertical-association
-	url = git@github.com:OCA/vertical-association.git
+	url = https://github.com/OCA/vertical-association
 	branch = 16.0
 [submodule "submodules/odoo-argentina"]
 	path = submodules/odoo-argentina
-	url = git@github.com:ingadhoc/odoo-argentina.git
+	url = https://github.com/ingadhoc/odoo-argentina
 	branch = 16.0
 [submodule "submodules/account-financial-tools"]
 	path = submodules/account-financial-tools
-	url = git@github.com:ingadhoc/account-financial-tools.git
+	url = https://github.com/ingadhoc/account-financial-tools
 	branch = 16.0
 [submodule "submodules/account-payment"]
 	path = submodules/account-payment
-	url = git@github.com:ingadhoc/account-payment.git
+	url = https://github.com/ingadhoc/account-payment
 	branch = 16.0
 [submodule "submodules/odoo-argentina-ce"]
 	path = submodules/odoo-argentina-ce
-	url = git@github.com:ingadhoc/odoo-argentina-ce.git
+	url = https://github.com/ingadhoc/odoo-argentina-ce
 	branch = 16.0
 [submodule "submodules/odooapps"]
 	path = submodules/odooapps
-	url = git@github.com:odoomates/odooapps.git
+	url = https://github.com/odoomates/odooapps
 	branch = 16.0
 [submodule "submodules/odoo-vialidad-cordoba"]
 	path = submodules/odoo-vialidad-cordoba
-	url = git@github.com:MarvinSoftwareSolutions/odoo-vialidad-cordoba.git
+	url = https://github.com/MarvinSoftwareSolutions/odoo-vialidad-cordoba
 	branch = 16.0
