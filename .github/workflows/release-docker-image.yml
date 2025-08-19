@@ -39,7 +39,7 @@ jobs:
         with:
           submodules: true
       - name: Git update submodules
-        run: git submodule update --jobs 3 --remote --recursive
+        run: git submodule update --jobs 3 --remote
       - id: install_submodules
         name: Copy submodules into installed adons
         run: scripts/add_submodules_as_addons.sh
