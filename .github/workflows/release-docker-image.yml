@@ -36,8 +36,8 @@ jobs:
     steps:
       - id: checkout
         uses: actions/checkout@v4
-        with:
-          submodules: true
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
       - name: Git update submodules
         run: git submodule update --jobs 3 --remote
       - id: install_submodules
