@@ -72,6 +72,7 @@ declare -a submodule_names_list=(
   "odooapps"
   "reporting-engine"
   "vertical-association"
+  "knowledge"
 )
 
 
