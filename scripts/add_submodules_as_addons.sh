@@ -73,6 +73,7 @@ declare -a submodule_names_list=(
   "reporting-engine"
   "vertical-association"
   "knowledge"
+  "oca-web"
 )
 
 

@@ -54,3 +54,7 @@
 	path = submodules/knowledge
 	url = https://github.com/OCA/knowledge.git
 	branch = 16.0
+[submodule "submodules/oca-web"]
+	path = submodules/oca-web
+	url = https://github.com/OCA/web.git
+	branch = 16.0
